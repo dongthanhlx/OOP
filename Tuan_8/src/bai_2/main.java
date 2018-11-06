@@ -1,0 +1,76 @@
+package bai_2;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class main {
+	public static void testNullPointerException() throws NullPointerException{
+		String s = null;
+		System.out.println(s.length());
+	}
+	public static void testArithmeticException() throws ArithmeticException{
+		int a = 1/0;
+	}
+	public static void testArray() throws ArrayIndexOutOfBoundsException{
+		String[] s = new String[2];
+		s[2] = "a";
+	}
+	public static void testFileNotFoundException() throws FileNotFoundException{
+		//File file = new File("test");
+		String fileName = "test";
+		BufferedReader br = new BufferedReader(new FileReader(new File(fileName)));
+	}
+	public static void testClassCastException() throws ClassCastException{
+		Object obj = Integer.valueOf(42);
+		String s = (String)obj;
+	}
+	public static void testIOException() throws IOException{
+		File file = new File("test.txt");
+		FileInputStream fileInputStream =  null;
+		fileInputStream = new FileInputStream(file);
+		fileInputStream.read();
+	}
+	public static void main(String args[]) {
+		try{
+			testNullPointerException();
+		}catch(NullPointerException ex){
+			System.out.println("Xay ra ngoai le "+ex);
+		}
+		
+		
+		try{
+			testArithmeticException();
+		}catch(ArithmeticException ex){
+			System.out.println("Xay ra ngoai le : "+ex);
+		}
+		
+		
+		try{
+			testFileNotFoundException();
+		}catch(FileNotFoundException ex){
+			System.out.println("Xay ra ngoai le : "+ex);
+		}
+		
+		try{
+			testArray();
+		}catch(ArrayIndexOutOfBoundsException ex){
+			System.out.println("Xay ra ngoai le : "+ex);
+		}
+		
+		try{
+			testClassCastException();
+		}catch(ClassCastException ex){
+			System.out.println("Xay ra ngoai le : "+ex);
+		}
+		
+		try{
+			testIOException();
+		}catch(IOException ex){
+			System.out.println("Xay ra ngoai le : "+ex);
+		}
+	}
+}
